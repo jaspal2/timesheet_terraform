@@ -69,8 +69,8 @@ module "vote_service_sg" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  availability_zone = data.aws_availability_zones.available.id[0]
-  subnet_id = module.vpc_id.subnet_id[0]
+  availability_zone = data.aws_availability_zones.available.names[0]
+  subnet_id = module.vpc.subnet_id[0]
     key_name        = "terraform-key"
 
   tags = {
