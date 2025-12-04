@@ -70,7 +70,8 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   availability_zone = data.aws_availability_zones.available.names[0]
-  subnet_id = module.vpc.subnet_id[0]
+  subnet_id         = module.vpc.public_subnets[0]
+  security_groups   = [module.vote_service_sg.security_group_id]
     key_name        = "terraform-key"
 
   tags = {
