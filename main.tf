@@ -72,8 +72,8 @@ resource "aws_instance" "web" {
   availability_zone = data.aws_availability_zones.available.names[0]
   subnet_id         = module.vpc.public_subnets[0]
   security_groups   = [module.vote_service_sg.security_group_id]
-  public_ip         = true
-    key_name        = "terraform-key"
+  associate_public_ip_address = true
+  key_name        = "terraform-key"
 
   tags = {
     Name = "HelloWorld2"
