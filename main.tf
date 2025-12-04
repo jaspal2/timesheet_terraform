@@ -50,8 +50,8 @@ module "vote_service_sg" {
   vpc_id      = module.vpc.vpc_id
 
 
-  ingress_cidr_blocks      = ["10.10.0.0/16"]
-  ingress_rules            = ["https-443-tcp"]
+  ingress_cidr_blocks      = ["0.0.0.0/16"]
+  ingress_rules            = ["https-443-tcp", "ssh-tcp"]
   ingress_with_cidr_blocks = [
     {
       from_port   = 8080
